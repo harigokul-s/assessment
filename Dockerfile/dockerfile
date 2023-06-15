@@ -4,4 +4,4 @@ MAINTAINER harigokul <harigoku1972@gmail.com>
 
 RUN ls
 
-CMD ["echo", "hello.... my first image"]
+CMD ["echo", "hello...."]
