@@ -1,0 +1,22 @@
+---
+- name: Deploy Kubernetes Pod
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create a Kubernetes Deployment
+      command: kubectl create deployment nginx --image=nginx
+      ignore_errors: yes
+
+    - name: Expose the Deployment as a Service
+      command: kubectl expose deployment nginx --port=80 --type=NodePort
+      ignore_errors: yes
+
+    - name: Get the NodePort
+      command: kubectl get svc nginx -o jsonpath='{.spec.ports[0].nodePort}'
+      register: node_port
+
+    - name: Print NodePort Information
+      debug:
+        msg: "The nginx service is accessible on NodePort {{ node_port.stdout }}."
+
+    
