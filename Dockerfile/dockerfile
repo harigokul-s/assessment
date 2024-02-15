@@ -5,3 +5,9 @@ MAINTAINER harigokul <harigoku1972@gmail.com>
 RUN ls
 
 CMD ["echo", "hello Kavi...."]
+
+Post https://hooks.slack.com/services/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
+Content-type: application/json
+{
+    "text": "Hello, world."
+}
